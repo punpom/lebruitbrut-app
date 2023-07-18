@@ -6,6 +6,42 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  username       String    @unique
+  email          String    @unique
+  emailVerified  Boolean?
+  image          String?
+  hashedPassword String?
+  isAdmin        Boolean?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  posts          Post[]
+  comments       Comment[]
+}
+
+model Post {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  content   String
+  imageSrc  String?
+  createdAt DateTime  @default(now())
+  userId    String    @db.ObjectId
+  comments  Comment[]
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Comment {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  content String
+  userId  String @db.ObjectId
+  postId  String @db.ObjectId
+
+  Posts Post @relation(fields: [postId], references: [id])
+  User  User @relation(fields: [userId], references: [id])
 }
