@@ -1,10 +1,10 @@
 'use client';
 
-import Avatar from "../Avatar";
 import Container from "../Container";
 import Logo from "./Logo";
+import MenuBar from "./MenuBar";
+import MobileMenu from "./MobileMenu";
 import Navigation from "./Navigation";
-import { AiOutlineMenu } from 'react-icons/ai';
 
 const Navbar = () => {
     return ( 
@@ -27,10 +27,10 @@ const Navbar = () => {
                     <Logo/>
                     <Navigation/>
                     <div className="hidden sm:block">
-                    <Avatar/>
+                    <MenuBar/>
                     </div>
                     <div className="sm:hidden">
-                    <AiOutlineMenu size={25}/>
+                        <MobileMenu/>
                     </div>
                 </div>
             </Container>      
