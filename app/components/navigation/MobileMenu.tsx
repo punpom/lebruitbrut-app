@@ -1,12 +1,99 @@
 'use client';
 
-import { AiOutlineMenu } from 'react-icons/ai';
+import { User } from '@prisma/client';
+import { useCallback, useState } from 'react';
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import MenuItem from './MenuItem';
+import { useRouter } from 'next/navigation';
 
-const MobileMenu = () => {
+interface MobileMenuProps {
+    currentUser?: User | null;
+}
+
+const MobileMenu: React.FC<MobileMenuProps> = ({ currentUser }) => {
+
+    const router = useRouter()
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleOpen = useCallback(() => {
+        setIsOpen((value) => !value);
+    }, [])
     return ( 
-    <div className='cursor-pointer'>
-        <AiOutlineMenu size={25}/>
-    </div> 
+        <div>
+            <div className='cursor-pointer' onClick={toggleOpen}>
+                {isOpen ? <AiOutlineClose size={25}/> : <AiOutlineMenu size={25}/>}
+            </div> 
+            {isOpen && (
+                <div
+                className="
+                absolute
+                w-full
+                bg-white
+                overflow-hidden
+                text-sm
+                top-16
+                left-0
+                border
+                shadow-sm
+                ">
+                    <div className="flex flex-col cursor-pointer">
+                    {currentUser ? (
+                        <>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Home"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="About me"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Contact"/>
+                            <hr/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Profile"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Favorites"/>
+                            {currentUser.isAdmin && (
+                                <MenuItem
+                                onClick={() => router.push("/")}
+                                label="Dashboard"/>
+                            )}
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Settings"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Log-out"/>
+                        </>
+                    ) : (
+                        <>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Home"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="About me"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Contact"/>
+                            <hr/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Login"/>
+                            <MenuItem
+                            onClick={() => router.push("/")}
+                            label="Sign-up"/>
+                        </>
+                )}
+                    </div>
+                </div>
+            )}
+            <div>
+            </div>
+        </div>
     );
 }
  
