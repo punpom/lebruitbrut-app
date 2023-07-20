@@ -28,6 +28,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentUser }) => {
                 <div
                 className="
                 absolute
+                z-10
                 w-full
                 bg-white
                 overflow-hidden
