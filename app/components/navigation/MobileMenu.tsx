@@ -44,28 +44,28 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentUser }) => {
                             onClick={() => router.push("/")}
                             label="Home"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/about")}
                             label="About me"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/contact")}
                             label="Contact"/>
                             <hr/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/profile")}
                             label="Profile"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/favorites")}
                             label="Favorites"/>
                             {currentUser.isAdmin && (
                                 <MenuItem
-                                onClick={() => router.push("/")}
+                                onClick={() => router.push("/dashboard")}
                                 label="Dashboard"/>
                             )}
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/settings")}
                             label="Settings"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("")}
                             label="Log-out"/>
                         </>
                     ) : (
@@ -74,17 +74,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ currentUser }) => {
                             onClick={() => router.push("/")}
                             label="Home"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/about")}
                             label="About me"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/contact")}
                             label="Contact"/>
                             <hr/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/login")}
                             label="Login"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/register")}
                             label="Sign-up"/>
                         </>
                 )}

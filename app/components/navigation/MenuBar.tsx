@@ -54,18 +54,18 @@ const MenuBar: React.FC<MenuBarProps> = ({ currentUser }) => {
                     {currentUser ? (
                         <>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/profile")}
                             label="Profile"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/favorites")}
                             label="Favorites"/>
                             {currentUser.isAdmin && (
                                 <MenuItem
-                                onClick={() => router.push("/")}
+                                onClick={() => router.push("/dashboard")}
                                 label="Dashboard"/>
                             )}
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/settings")}
                             label="Settings"/>
                             <MenuItem
                             onClick={() => router.push("/")}
@@ -74,10 +74,10 @@ const MenuBar: React.FC<MenuBarProps> = ({ currentUser }) => {
                     ) : (
                         <>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/login")}
                             label="Login"/>
                             <MenuItem
-                            onClick={() => router.push("/")}
+                            onClick={() => router.push("/register")}
                             label="Sign-up"/>
                         </>
                 )}
