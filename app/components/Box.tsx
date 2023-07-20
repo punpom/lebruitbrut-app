@@ -8,6 +8,7 @@ const Box: React.FC<BoxProps> = ({ children }) => {
     return ( 
     <div className="w-full flex justify-center">
         <div className="
+        py-2
         absolute
         top-1/4
         bg-white 
