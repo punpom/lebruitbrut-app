@@ -10,7 +10,7 @@ const Box: React.FC<BoxProps> = ({ children }) => {
         <div className="
         py-2
         absolute
-        top-1/4
+        top-24
         bg-white 
         md:w-3/5
         lg:w-2/5
