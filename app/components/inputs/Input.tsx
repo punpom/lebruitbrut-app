@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
 <label className={`
         text-md
         text-black
-        z-10
+        z-9
         ${errors[id] ? 'text-rose-500' : 'text-zinc-400'}`}>{label}</label>
 
 <input 
