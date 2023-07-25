@@ -15,9 +15,10 @@ const Box: React.FC<BoxProps> = ({ children }) => {
         md:w-3/5
         lg:w-2/5
         xl:w-1/3
-        w-3/4
+        sm:w-3/4
+        w-full
         h-auto
-        rounded-xl
+        sm:rounded-xl
         shadow-sm
     "> 
         {children}
